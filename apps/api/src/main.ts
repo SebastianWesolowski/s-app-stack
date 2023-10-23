@@ -2,6 +2,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 
 declare const module: any;
 async function bootstrap() {
@@ -13,6 +14,13 @@ async function bootstrap() {
     .setDescription('Api Docs for leaves tracker')
     .setVersion('1.0')
     .build();
+
+  const corsOptions: CorsOptions = {
+    origin: 'http://localhost:3000', // Zdefiniuj właściwy adres i port Twojej aplikacji front-end
+    methods: '*',
+  };
+
+  app.enableCors(corsOptions);
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);

@@ -41,6 +41,11 @@ This turborepo has some additional tools already setup for you:
 
 ## Setup
 This starter kit is using turborepo and yarn workspaces for monorepo workflow.
+### TLDR;
+
+```
+npm i -g nps && cp apps/api/.env.example apps/api/.env && cp apps/web/.env.example apps/web/.env && nps prepare
+```
 
 ### Prerequisites 
 - Install nps by running 
@@ -52,9 +57,9 @@ npm i -g nps
 
 ### Configure Environment
 - Frontend 
-    - `cd apps/web && cp .env.example .env`
+    - `cp apps/web/.env.example apps/web/.env`
 - Backend 
-    - `cd apps/api && cp .env.example .env`
+    - `cp apps/api/.env.example apps/api/.env`
 
 ### Install Dependencies
 Make sure you are at root of the project and just run 
